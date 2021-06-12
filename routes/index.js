@@ -27,4 +27,8 @@ router.post("/upload", upload.single("file"), (req, res) => {
 
 
 router.post("/postMessage", controllers.postMessage);
+
+router.post("/searchPolicy", controllers.searchPolicy);
+
+
 module.exports = router;
