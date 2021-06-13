@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let PolicyCategorySchema = new Schema({
-  category_name: {
+  categoryName: {
     type: String,
   }
+},{
+  versionKey: false 
 });
 
-PolicyCategorySchema.index({ category_name: 1 }, { unique: true });
 
-module.exports = User = mongoose.model("LOB", PolicyCategorySchema);
+module.exports = Category = mongoose.model("LOB", PolicyCategorySchema);

@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  first_name: {
+  firstName: {
     type: String,
-    required:true
+    required: true,
+    index:true
   },
   dob: {
     type: Date,
@@ -12,13 +13,13 @@ const UserSchema = new Schema({
   address: {
     type: String,
   },
-  phone_number: {
-    type: Number,
+  phone: {
+    type: String,
   },
   state: {
     type: String,
   },
-  zipcode: {
+  zip: {
     type: String,
   },
   email: {
@@ -28,14 +29,14 @@ const UserSchema = new Schema({
   gender: {
     type: String,
   },
-  user_type: {
+  userType: {
     type: String,
   },
-  policy_number: {
-    type: String
-  }
+  agentId: {
+    type: Schema.Types.ObjectId,
+  },
+},{
+  versionKey: false 
 });
 
-
-UserSchema.index({ first_name: 1 }, { unique: true });
 module.exports = User = mongoose.model("User", UserSchema);

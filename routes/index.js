@@ -10,6 +10,8 @@ const upload = multer({ storage: storage });
 
 const controllers = require("../controllers");
 
+const validationMiddleware = require("../middleware/validation");
+
 router.post("/upload", upload.single("file"), (req, res) => {
   try {
     console.log("-----------")
@@ -26,5 +28,11 @@ router.post("/upload", upload.single("file"), (req, res) => {
 });
 
 
-router.post("/postMessage", controllers.postMessage);
+router.post("/postMessage", validationMiddleware,controllers.postMessage);
+
+router.post("/searchPolicy", controllers.searchPolicy);
+
+router.get("/gePolicies", controllers.getPolicies);
+
+
 module.exports = router;

@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserAccountSchema = new Schema({
-  account_name: {
+  accountName: {
     type: String,
   }
+},{
+  versionKey: false 
 });
 
-
-UserAccountSchema.index({ account_name: 1 }, { unique: true });
-module.exports = User = mongoose.model("UserAccount", UserAccountSchema);
+module.exports = UserAccount = mongoose.model("UserAccount", UserAccountSchema);

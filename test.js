@@ -23,37 +23,41 @@
 // }
 
 // parse(lines);
-const Message = require("./models/Message");
-const Agenda = require("agenda");
-const mongoConnectionString = "mongodb+srv://newUser_677:malathi677@cluster0.es4ir.mongodb.net/insuredMine?retryWrites=true&w=majority";
-const mongoose = require('mongoose')
-mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+// const Message = require("./models/Message");
+// const Agenda = require("agenda");
+// const mongoConnectionString = "mongodb+srv://newUser_677:malathi677@cluster0.es4ir.mongodb.net/insuredMine?retryWrites=true&w=majority";
+// const mongoose = require('mongoose')
+// mongoose.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
 
-const agenda = new Agenda({ db: { address: mongoConnectionString} });
+// const agenda = new Agenda({ db: { address: mongoConnectionString} });
 
+// agenda.define('test job', async job => {
 
-agenda.define('test job', async job => {
- 
-  const today = new Date();
-  const messageToStore = new Message({
-        message: "Testtt",
-        timeStamp:1623161866
-      });
-      console.log("--------------",new Date())
-      messageToStore
-        .save()
-        .then((result) => {
-          console.log("--------------------", result);
-          //res.send({ message: "Inserted" });
-        })
-        .catch((err) => {
-          console.log("-------",err);
-        });
-});
-  
-(async function () {
-  console.log("-----caling---")
-  const returned= agenda.create('test job')
-  await agenda.start();
-  await returned.schedule(1623166740000).save()
-})();
+//   const today = new Date();
+//   const messageToStore = new Message({
+//         message: "Testtt",
+//         timeStamp:1623161866
+//       });
+//       console.log("--------------",new Date())
+//       messageToStore
+//         .save()
+//         .then((result) => {
+//           console.log("--------------------", result);
+//           //res.send({ message: "Inserted" });
+//         })
+//         .catch((err) => {
+//           console.log("-------",err);
+//         });
+// });
+
+// (async function () {
+//   console.log("-----caling---")
+//   const returned= agenda.create('test job')
+//   await agenda.start();
+//   await returned.schedule(1623166740000).save()
+// })();
+
+const data = [{ name: "malathi", _id: "123" },{ name: "mal", _id: "312" }];
+
+const name = data.find(record => record._id === "123");
+console.log(name);

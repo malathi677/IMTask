@@ -5,30 +5,34 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PolicyInfoSchema = new Schema({
-    policy_number: {
+    policyNumber: {
         type: String,
-        required:true
+        required: true,
+        index: true,
+        unique:true
     },
-    policy_start_date: {
+    policyStartDate: {
         type: Date,
     },
-    policy_end_date: {
+    policyEndDate: {
         type: Date,
     },
-    policy_category_ID: {
-        type: ObjectId,
+    policyCategoryId: {
+        type: Schema.Types.ObjectId,
         
     },
-    company_ID: {
-        type: ObjectId,
+    companyId: {
+        type: Schema.Types.ObjectId,
         
     },
-    user_ID: {
-        type: ObjectId
+    userId: {
+        type: Schema.Types.ObjectId
     }
-})
+},{
+    versionKey: false 
+  })
 
 
-PolicyInfoSchema.index({ policy_number: 1 }, { unique: true });
+//PolicyInfoSchema.index({ policyNumber: 1 }, { unique: true });
 
-module.exports = User = mongoose.model("PolicyInfo", PolicyInfoSchema);
+module.exports = PolicyInfo = mongoose.model("PolicyInfo", PolicyInfoSchema);
