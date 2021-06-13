@@ -1,6 +1,0 @@
-{
-    "PREFIX":"/assesment",
-    "CHECK_CPU_USAGE_INTERVAL": "60000",
-    "HIGH_CPU_USAGE_LIMIT": 0.1,
-    "mongoURL":"mongodb+srv://newUser_677:malathi677@cluster0.es4ir.mongodb.net/insuredMine?retryWrites=true&w=majority"
-}
