@@ -35,6 +35,8 @@ const UserSchema = new Schema({
   agentId: {
     type: Schema.Types.ObjectId,
   },
+},{
+  versionKey: false 
 });
 
 module.exports = User = mongoose.model("User", UserSchema);

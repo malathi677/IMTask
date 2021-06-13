@@ -5,6 +5,8 @@ const UserAccountSchema = new Schema({
   accountName: {
     type: String,
   }
+},{
+  versionKey: false 
 });
 
 module.exports = UserAccount = mongoose.model("UserAccount", UserAccountSchema);

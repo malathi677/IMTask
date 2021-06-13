@@ -28,7 +28,9 @@ const PolicyInfoSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId
     }
-})
+},{
+    versionKey: false 
+  })
 
 
 //PolicyInfoSchema.index({ policyNumber: 1 }, { unique: true });

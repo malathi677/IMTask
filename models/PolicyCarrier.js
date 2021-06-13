@@ -5,6 +5,8 @@ let PolicyCarrierSchema = new Schema({
   companyName: {
     type: String,
   },
+},{
+  versionKey: false 
 });
 
 module.exports = Carrier = mongoose.model("Carrier", PolicyCarrierSchema);

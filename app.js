@@ -23,19 +23,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  mongoose
-    .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      console.log("mongodb connected successfully");
-      next();
-    })
-    .catch((err) => {
-      console.log("Error while connecting to mongodb");
-      res.status(err.status || 401);
-      return res.send({ "Error": err });
-    });
-});
+mongoose
+  .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("mongodb connected successfully");
+  })
+  .catch((err) => {
+    console.log("Error while connecting to mongodb");
+  });
 
 app.use(config.PREFIX, indexRouter);
 

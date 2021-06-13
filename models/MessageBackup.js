@@ -10,6 +10,8 @@ const MessageBackUpSchema = new Schema({
       required: true,
     index:true
   }
+},{
+  versionKey: false 
 });
 
 module.exports = MessageBackup = mongoose.model("MessageBackup", MessageBackUpSchema);

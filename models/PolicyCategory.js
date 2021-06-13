@@ -5,6 +5,8 @@ let PolicyCategorySchema = new Schema({
   categoryName: {
     type: String,
   }
+},{
+  versionKey: false 
 });
 
 

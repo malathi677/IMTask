@@ -5,6 +5,8 @@ const AgentSchema = new Schema({
   agentName: {
     type: String,
   }
+},{
+  versionKey: false 
 });
 
 AgentSchema.index({ agentName: 1 });
